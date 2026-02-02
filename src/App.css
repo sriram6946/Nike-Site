@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --red: #d01c28;
+  --gray: #2e2e2e;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  height: 72px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+}
+
+button {
+  all: unset;
+  padding: 6px 16px;
+  height: 30px;
+  color: white;
+  font-weight: 500;
+  background: var(--red);
+  border-radius: 5px;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-left: 70px;
+}
+
+.hero h1 {
+  height: 150px;
+  max-width: 595px;
+  font-size: 65px;
+  line-height: 60px;
+  margin-top: 20px;
+}
+
+.hero p {
+  height: 91px;
+  max-width: 404px;
+  margin-top: 40px;
+}
+
+.shop-btn {
+  margin-top: 2px;
+  gap: 8px;
+}
+
+.category-btn {
+  margin-top: 10px;
+  gap: 2px;
+  background: transparent;
+  color: #2e2e2e;
+  margin-left: 10px;
+  border: solid;
+}
+
+.available {
+  margin-bottom: 2px;
+}
+
+.site-logos {
+  margin-top: -50px;
+  display: flex;
+  gap: 12px;
+}
+
+.site-logos img {
+  height: 32px;
+  object-fit: contain;
+}
+
+.nav-btn {
+  background: transparent;
+  color: var(--gray);
+  margin-top: 0px;
+}
+
+.contact-us-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.contact-us-div p {
+  max-width: 30vw;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  gap: 15px;
+  border-radius: 5px;
+  background-color: aliceblue;
+  padding: 30px;
+  border-radius: 15px;
+  width: 20vw;
+}
+
+.contact-submit {
+  margin-left: 85px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.contact-form input {
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.text-box {
+  height: 50px;
+}
+
+.about-div {
+  padding: 20px;
+  line-height: 30px;
+}
+
+.first-about-div {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.second-about-div {
+  margin-bottom: 10px;
+}
+
+.login-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.login-card {
+  width: 420px;
+  background: aliceblue;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-card h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.login-subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.credentials input {
+  height: 44px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.credentials input:focus {
+  outline: none;
+  border-color: #e60023;
+}
+
+.credentials button {
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  background: #e60023;
+  color: white;
+  width: 90px;
+  margin-left: 150px;
+}
+
+.register-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-text span {
+  color: #e60023;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.register-form {
+  background: aliceblue;
+  padding: 2.5rem;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.register-form input {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.register-form input:focus {
+  border-color: #111;
+}
+
+.primary-btn {
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  margin-left: 85px;
+}
+
+.nav-select {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 9px;
+}
+
+
+.nav-select {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-select:focus {
+  outline: none;
+}
