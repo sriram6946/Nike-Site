@@ -9,6 +9,7 @@ import LoginPage from "./components/Login";
 import RegisterPage from "./components/Register";
 import Shop from "./components/shop.jsx"
 import AllProducts from "./components/AllProducts.jsx";
+import Cart from "./pages/Cart.jsx";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path ="/register" element = {<RegisterPage/>}/>
         <Route path="/shop/:gender/:category" element={<Shop />} />
         <Route path="/shop" element={<AllProducts />} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
     </>
   );

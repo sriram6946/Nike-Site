@@ -1,7 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
+import { getCart } from "../utilities/cart";
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const cartCount = getCart().reduce((sum, item) => sum + item.qty, 0);
 
   return (
     <div>
@@ -90,6 +92,7 @@ const Navigation = () => {
         </ul>
 
         <button onClick={() => navigate("/Login")}>Login</button>
+        <button onClick={() => navigate("/cart")}>Cart ({cartCount})</button>
       </nav>
     </div>
   );

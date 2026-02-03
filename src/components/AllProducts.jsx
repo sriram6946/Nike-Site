@@ -1,4 +1,5 @@
 import { products } from "./data/products";
+import { addToCart } from "../utilities/cart";
 
 const AllProducts = () => {
   const allProducts = Object.values(products)
@@ -32,6 +33,18 @@ const AllProducts = () => {
             />
             <h4>{product.name}</h4>
             <p>₹{product.price}</p>
+
+            <button
+              onClick={() => addToCart(product)}
+              style={{
+                marginTop: "10px",
+                padding: "8px",
+                width: "100%",
+                cursor: "pointer",
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

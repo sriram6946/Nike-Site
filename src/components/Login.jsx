@@ -7,26 +7,24 @@ const LoginPage = () => {
 
   const navigate = useNavigate();
   const handleLogin = () => {
-  const users = JSON.parse(localStorage.getItem("users"));
+    const users = JSON.parse(localStorage.getItem("users"));
 
-  if (!users || users.length === 0) {
-    alert("No accounts found. Please register.");
-    return;
-  }
+    if (!users || users.length === 0) {
+      alert("No accounts found. Please register.");
+      return;
+    }
 
-  const matchedUser = users.find(
-    (user) =>
-      user.email === email && user.password === password
-  );
+    const matchedUser = users.find(
+      (user) => user.email === email && user.password === password,
+    );
 
-  if (matchedUser) {
-    alert(`Welcome ${matchedUser.name}`);
-    navigate("/");
-  } else {
-    alert("Invalid email or password");
-  }
-};
-
+    if (matchedUser) {
+      alert(`Welcome ${matchedUser.name}`);
+      navigate("/");
+    } else {
+      alert("Invalid email or password");
+    }
+  };
 
   return (
     <div className="login-page">

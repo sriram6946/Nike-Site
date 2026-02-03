@@ -29,6 +29,12 @@ export const products = {
         price: 12999,
         image: "/shoe4.avif",
       },
+      {
+        id: 4,
+        name: "Nike Mercurial",
+        price: 12999,
+        image: "/shoe8.avif",
+      },
     ],
   },
 

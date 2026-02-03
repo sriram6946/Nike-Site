@@ -32,6 +32,12 @@ const Shop = () => {
               />
               <h4>{product.name}</h4>
               <p>₹{product.price}</p>
+              <button
+                onClick={() => addToCart(product)}
+                style={{ marginTop: "10px", width: "100%" }}
+              >
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>
