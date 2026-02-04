@@ -1,30 +1,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
 
   const navigate = useNavigate();
-  const handleLogin = () => {
-    const users = JSON.parse(localStorage.getItem("users"));
+ const handleLogin = (e) => {
+  e.preventDefault();
 
-    if (!users || users.length === 0) {
-      alert("No accounts found. Please register.");
-      return;
-    }
-
-    const matchedUser = users.find(
-      (user) => user.email === email && user.password === password,
-    );
-
-    if (matchedUser) {
-      alert(`Welcome ${matchedUser.name}`);
-      navigate("/");
-    } else {
-      alert("Invalid email or password");
-    }
+  const user = {
+    name: email.split("@")[0],
+    email,
   };
+
+
+  
+ localStorage.setItem("currentUser", JSON.stringify(user));
+setUser(user);          
+navigate("/");
+
+};
+
 
   return (
     <div className="login-page">

@@ -1,32 +1,45 @@
-import { useState } from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HeroSection from "./components/Hero";
+import Login from "./components/Login";
+import Cart from "./pages/Cart";
+import About from "./components/About";
 import ContactUs from "./components/ContactUS";
-import { Route, Routes } from "react-router-dom";
-import AboutPage from "./components/About";
-import LoginPage from "./components/Login";
-import RegisterPage from "./components/Register";
-import Shop from "./components/shop.jsx"
-import AllProducts from "./components/AllProducts.jsx";
-import Cart from "./pages/Cart.jsx";
+import "./App.css";
+import Shop from "./components/shop";
+import AllProducts from "./components/AllProducts";
+import RegisterPage from "./components/Register"
+import ProductDetails from "./components/ProductDetails";
+
 
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("currentUser");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <>
-      <Navigation />
+      <Navigation user={user} setUser={setUser} />
+
       <Routes>
-        <Route path="/" element = {<HeroSection/>}/>
-        <Route path="/ContactUs" element = {<ContactUs/>}/>
-        <Route path ="/About" element = {<AboutPage/>}/>
-        <Route path ="/Login" element = {<LoginPage/>}/>
-        <Route path ="/register" element = {<RegisterPage/>}/>
-        <Route path="/shop/:gender/:category" element={<Shop />} />
+        <Route path="/" element={<HeroSection />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contactus" element={<ContactUs />} />
         <Route path="/shop" element={<AllProducts />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/shop/:gender/:category" element={<Shop />} />
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/product/:id" element={<ProductDetails />} />
+
       </Routes>
     </>
   );

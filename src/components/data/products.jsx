@@ -10,39 +10,10 @@ export const products = {
       {
         id: 2,
         name: "Nike Court Vision",
-        price: 6999,
+        price: 16999,
         image: "/shoe2.avif",
       },
-      {
-        id: 2,
-        name: "Nike Court Vision",
-        price: 6999,
-        image: "/shoe2.avif",
-      },
-      {
-        id: 2,
-        name: "Nike Court Vision",
-        price: 6999,
-        image: "/shoe2.avif",
-      },
-      {
-        id: 2,
-        name: "Nike Court Vision",
-        price: 6999,
-        image: "/shoe2.avif",
-      },
-      {
-        id: 2,
-        name: "Nike Court Vision",
-        price: 6999,
-        image: "/shoe2.avif",
-      },
-      {
-        id: 2,
-        name: "Nike Court Vision",
-        price: 6999,
-        image: "/shoe2.avif",
-      },
+  
     ],
     training: [
       {
@@ -52,142 +23,121 @@ export const products = {
         image: "/shoe3.avif",
       },
       {
-        id: 3,
-        name: "Nike Metcon",
+        id: 4,
+        name: "Nike Revolution",
         price: 10999,
-        image: "/shoe3.avif",
+        image: "/shoe17.avif",
       },
-      {
-        id: 3,
-        name: "Nike Metcon",
-        price: 10999,
-        image: "/shoe3.avif",
-      },
-      {
-        id: 3,
-        name: "Nike Metcon",
-        price: 10999,
-        image: "/shoe3.avif",
-      },
-      {
-        id: 3,
-        name: "Nike Metcon",
-        price: 10999,
-        image: "/shoe3.avif",
-      },
+   
     ],
     sports: [
       {
-        id: 4,
+        id: 5,
         name: "Nike Mercurial",
         price: 12999,
         image: "/shoe4.avif",
       },
       {
-        id: 4,
-        name: "Nike Mercurial",
+        id: 6,
+        name: "Nike Versatility",
         price: 12999,
-        image: "/shoe8.avif",
+        image: "/shoe14.avif",
       },
-      {
-        id: 4,
-        name: "Nike Mercurial",
-        price: 12999,
-        image: "/shoe8.avif",
-      },
-      {
-        id: 4,
-        name: "Nike Mercurial",
-        price: 12999,
-        image: "/shoe8.avif",
-      },
+   
     ],
   },
 
   women: {
     lifestyle: [
       {
-        id: 5,
+        id: 7,
         name: "Nike Air Force 1",
         price: 7999,
         image: "/shoe5.avif",
       },
       {
-        id: 5,
-        name: "Nike Air Force 1",
+        id: 8,
+        name: "Nike Air Force 2",
         price: 7999,
-        image: "/shoe5.avif",
+        image: "/shoe15.avif",
       },
-      {
-        id: 5,
-        name: "Nike Air Force 1",
-        price: 7999,
-        image: "/shoe5.avif",
-      },
-      {
-        id: 5,
-        name: "Nike Air Force 1",
-        price: 7999,
-        image: "/shoe5.avif",
-      },
+    
     ],
     training: [
       {
-        id: 6,
+        id: 9,
         name: "Nike Free TR",
         price: 8999,
         image: "/shoe6.avif",
       },
       {
-        id: 6,
-        name: "Nike Free TR",
+        id: 10,
+        name: "Nike TR",
         price: 8999,
-        image: "/shoe6.avif",
+        image: "/shoe20.avif",
       },
-      {
-        id: 6,
-        name: "Nike Free TR",
-        price: 8999,
-        image: "/shoe6.avif",
+   
+    ],
+    sports: [
+       {
+        id: 11,
+        name: "Nike Sport",
+        price: 4999,
+        image: "/shoe16.avif",
       },
-      {
-        id: 6,
-        name: "Nike Free TR",
-        price: 8999,
-        image: "/shoe6.avif",
+       {
+        id: 12,
+        name: "Nike Sport",
+        price: 4999,
+        image: "/shoe13.avif",
       },
     ],
-    sports: [],
   },
 
   kids: {
     lifestyle: [
       {
-        id: 7,
+        id: 13,
         name: "Nike Revolution",
         price: 4999,
         image: "/shoe7.avif",
       },
       {
-        id: 7,
-        name: "Nike Revolution",
+        id: 14,
+        name: "Nike Evolution",
         price: 4999,
-        image: "/shoe7.avif",
+        image: "/shoe8.avif",
+      },
+   
+    ],
+    training: [
+      {
+        id: 15,
+        name: "Nike Sport",
+        price: 4999,
+        image: "/shoe9.avif",
       },
       {
-        id: 7,
-        name: "Nike Revolution",
+        id: 16,
+        name: "Nike Sport",
         price: 4999,
-        image: "/shoe7.avif",
-      },
-      {
-        id: 7,
-        name: "Nike Revolution",
-        price: 4999,
-        image: "/shoe7.avif",
+        image: "/shoe10.avif",
       },
     ],
-    training: [],
-    sports: [],
+    sports: [
+ {
+        id: 17,
+        name: "Nike Sport",
+        price: 4999,
+        image: "/shoe11.avif",
+      },
+       {
+        id: 18,
+        name: "Nike Sport",
+        price: 4999,
+        image: "/shoe12.avif",
+      },
+
+    ],
   },
 };

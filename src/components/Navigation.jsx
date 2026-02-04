@@ -1,9 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
 import { getCart } from "../utilities/cart";
+import { useState, useEffect } from "react";
 
-const Navigation = () => {
+const Navigation = ({ user, setUser }) => {
   const navigate = useNavigate();
-  const cartCount = getCart().reduce((sum, item) => sum + item.qty, 0);
+  const [cartCount, setCartCount] = useState(0);
+
+  const updateCartCount = () => {
+    const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+    setCartCount(count);
+  };
+
+  useEffect(() => {
+    updateCartCount();
+    window.addEventListener("cartUpdated", updateCartCount);
+
+    return () => {
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, []);
+
+  const handleLogout = () => {
+  localStorage.removeItem("currentUser");
+  setUser(null);
+  navigate("/");
+};
+
 
   return (
     <div>
@@ -91,8 +113,21 @@ const Navigation = () => {
           </li>
         </ul>
 
-        <button onClick={() => navigate("/Login")}>Login</button>
-        <button onClick={() => navigate("/cart")}>Cart ({cartCount})</button>
+       {user ? (
+  <>
+    <span>Hi, {user.name}</span>
+    <button onClick={handleLogout}>Logout</button>
+  </>
+) : (
+  <button onClick={() => navigate("/Login")}>Login</button>
+)}
+
+       {user && (
+  <button className="cart-btn" onClick={() => navigate("/cart")}>
+    Cart ({cartCount})
+  </button>
+)}
+
       </nav>
     </div>
   );
