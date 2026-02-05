@@ -13,7 +13,6 @@ import RegisterPage from "./components/Register";
 import ProductDetails from "./components/ProductDetails";
 import Checkout from "./components/Checkoout";
 
-
 const App = () => {
   const [user, setUser] = useState(null);
 

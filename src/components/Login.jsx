@@ -17,7 +17,8 @@ const LoginPage = ({ setUser }) => {
 
   
  localStorage.setItem("currentUser", JSON.stringify(user));
-setUser(user);          
+setUser(user);       
+   window.dispatchEvent(new Event("cartUpdated"));
 navigate("/");
 
 };

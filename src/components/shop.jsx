@@ -75,12 +75,9 @@ const Shop = () => {
                 </button>
               ) : qty === 0 ? (
                 <button
-                  onClick={() => addToCart(product)}
-                  style={{
-                    marginTop: "10px",
-                    padding: "8px",
-                    width: "100%",
-                    cursor: "pointer",
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToCart(product);
                   }}
                 >
                   Add to Cart

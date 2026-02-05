@@ -5,27 +5,42 @@ import { useState, useEffect } from "react";
 const Navigation = ({ user, setUser }) => {
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
+  useEffect(() => {
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(cart.length);
+    };
+
+    updateCartCount();
+
+    window.addEventListener("cartUpdated", updateCartCount);
+    window.addEventListener("storage", updateCartCount);
+
+    return () => {
+      window.removeEventListener("cartUpdated", updateCartCount);
+      window.removeEventListener("storage", updateCartCount);
+    };
+  }, []);
 
   const updateCartCount = () => {
-    const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+    const cart = getCart();
+    const count = cart.reduce((sum, i) => sum + i.qty, 0);
     setCartCount(count);
   };
 
   useEffect(() => {
     updateCartCount();
     window.addEventListener("cartUpdated", updateCartCount);
-
-    return () => {
-      window.removeEventListener("cartUpdated", updateCartCount);
-    };
+    
+    return () => window.removeEventListener("cartUpdated", updateCartCount);
   }, []);
 
   const handleLogout = () => {
-  localStorage.removeItem("currentUser");
-  setUser(null);
-  navigate("/");
-};
-
+    localStorage.removeItem("currentUser");
+    setUser(null);
+    window.dispatchEvent(new Event("cartUpdated"));
+    navigate("/");
+  };
 
   return (
     <div>
@@ -113,21 +128,20 @@ const Navigation = ({ user, setUser }) => {
           </li>
         </ul>
 
-       {user ? (
-  <>
-    <span>Hi, {user.name}</span>
-    <button onClick={handleLogout}>Logout</button>
-  </>
-) : (
-  <button onClick={() => navigate("/Login")}>Login</button>
-)}
+        {user ? (
+          <>
+            <span>Hi, {user.name}</span>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <button onClick={() => navigate("/Login")}>Login</button>
+        )}
 
-       {user && (
-  <button className="cart-btn" onClick={() => navigate("/cart")}>
-    Cart ({cartCount})
-  </button>
-)}
-
+        {user && (
+          <button className="cart-btn" onClick={() => navigate("/cart")}>
+            Cart ({cartCount})
+          </button>
+        )}
       </nav>
     </div>
   );

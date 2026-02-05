@@ -12,11 +12,13 @@ const AllProducts = () => {
   const [, forceUpdate] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const update = () => forceUpdate((n) => n + 1);
-    window.addEventListener("cartUpdated", update);
-    return () => window.removeEventListener("cartUpdated", update);
-  }, []);
+useEffect(() => {
+  const update = () => forceUpdate((n) => n + 1);
+  window.addEventListener("cartUpdated", update);
+
+  return () => window.removeEventListener("cartUpdated", update);
+}, []);
+
 
   return (
     <div style={{ padding: "40px" }}>
@@ -52,12 +54,9 @@ const AllProducts = () => {
                 </button>
               ) : qty === 0 ? (
                 <button
-                  onClick={() => addToCart(product)}
-                  style={{
-                    marginTop: "10px",
-                    padding: "8px",
-                    width: "100%",
-                    cursor: "pointer",
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    addToCart(product);
                   }}
                 >
                   Add to Cart
