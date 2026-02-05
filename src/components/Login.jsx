@@ -6,10 +6,12 @@ const LoginPage = ({ setUser }) => {
   const [password, SetPassword] = useState("");
 
   const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
+    const carts = JSON.parse(localStorage.getItem("carts")) || [];
 
     const emailNormalized = email.trim().toLowerCase();
 
@@ -30,6 +32,13 @@ const LoginPage = ({ setUser }) => {
 
     localStorage.setItem("currentUser", JSON.stringify(sessionUser));
     setUser(sessionUser);
+
+    const userCart = carts.find((c) => c.userId === existingUser.id);
+
+    localStorage.setItem(
+      "currentUserCart",
+      JSON.stringify(userCart ? userCart.items : []),
+    );
 
     window.dispatchEvent(new Event("cartUpdated"));
     navigate("/");

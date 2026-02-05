@@ -35,12 +35,34 @@ const Navigation = ({ user, setUser }) => {
     return () => window.removeEventListener("cartUpdated", updateCartCount);
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("currentUser");
-    setUser(null);
-    window.dispatchEvent(new Event("cartUpdated"));
-    navigate("/");
-  };
+ const handleLogout = () => {
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user) return;
+
+  const currentCart =
+    JSON.parse(localStorage.getItem("currentUserCart")) || [];
+
+  let carts = JSON.parse(localStorage.getItem("carts")) || [];
+
+  const index = carts.findIndex(c => c.userId === user.id);
+
+  if (index !== -1) {
+    carts[index].items = currentCart;
+  } else {
+    carts.push({ userId: user.id, items: currentCart });
+  }
+
+  localStorage.setItem("carts", JSON.stringify(carts));
+
+
+  localStorage.removeItem("currentUser");
+  localStorage.removeItem("currentUserCart");
+
+  window.dispatchEvent(new Event("cartUpdated"));
+  setUser(null);
+  navigate("/");
+};
+
 
   return (
     <div>
