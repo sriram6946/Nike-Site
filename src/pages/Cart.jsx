@@ -1,9 +1,12 @@
 import { getCart } from "../utilities/cart";
 import { useState } from "react";
 import { removeFromCart, addToCart, decreaseQty } from "../utilities/cart";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cart, setCart] = useState(getCart());
+  const navigate = useNavigate();
+
 
   const handleRemove = (id) => {
     removeFromCart(id);
@@ -114,9 +117,20 @@ const Cart = () => {
     <span>₹{grandTotal}</span>
   </div>
 
-  <button className="checkout-btn">
-    Proceed to Checkout
-  </button>
+<button
+  onClick={() => navigate("/checkout")}
+  style={{
+    width: "100%",
+    padding: "14px",
+    background: "black",
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+  }}
+>
+  Proceed to Checkout
+</button>
+
 </div>
 
           </div>

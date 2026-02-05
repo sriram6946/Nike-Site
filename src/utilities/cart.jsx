@@ -7,6 +7,20 @@ export const getProductQty = (id) => {
   return item ? item.qty : 0;
 };
 
+export const getCartItems = () => {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+};
+
+export const getCartTotal = () => {
+  const cart = getCartItems();
+  return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+};
+
+export const clearCart = () => {
+  localStorage.removeItem("cart");
+  window.dispatchEvent(new Event("cartUpdated"));
+};
+
 
 export const decreaseQty = (id) => {
   const cart = getCart();

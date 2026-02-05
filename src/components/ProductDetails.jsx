@@ -16,7 +16,6 @@ const ProductDetails = () => {
     return () => window.removeEventListener("cartUpdated", update);
   }, []);
 
- 
   const allProducts = Object.values(products)
     .flatMap((gender) => Object.values(gender))
     .flat();
@@ -45,11 +44,13 @@ const ProductDetails = () => {
             Perfect for everyday wear and sports activities.
           </p>
 
-       
-          <p><strong>Available Sizes:</strong> UK 6, 7, 8, 9, 10</p>
-          <p><strong>Delivery:</strong> Free delivery in 3–5 days</p>
+          <p>
+            <strong>Available Sizes:</strong> UK 6, 7, 8, 9, 10
+          </p>
+          <p>
+            <strong>Delivery:</strong> Free delivery in 3–5 days
+          </p>
 
- 
           {!isLoggedIn ? (
             <button disabled style={{ marginTop: "20px", padding: "10px" }}>
               Login to add to cart

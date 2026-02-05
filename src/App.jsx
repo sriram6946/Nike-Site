@@ -9,9 +9,9 @@ import ContactUs from "./components/ContactUS";
 import "./App.css";
 import Shop from "./components/shop";
 import AllProducts from "./components/AllProducts";
-import RegisterPage from "./components/Register"
+import RegisterPage from "./components/Register";
 import ProductDetails from "./components/ProductDetails";
-
+import Checkout from "./components/Checkoout";
 
 
 const App = () => {
@@ -31,15 +31,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
-
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/shop" element={<AllProducts />} />
         <Route path="/shop/:gender/:category" element={<Shop />} />
-        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/product/:id" element={<ProductDetails />} />
-
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );
