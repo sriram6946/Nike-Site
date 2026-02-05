@@ -31,7 +31,7 @@ const Navigation = ({ user, setUser }) => {
   useEffect(() => {
     updateCartCount();
     window.addEventListener("cartUpdated", updateCartCount);
-    
+
     return () => window.removeEventListener("cartUpdated", updateCartCount);
   }, []);
 

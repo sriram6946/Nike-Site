@@ -6,23 +6,34 @@ const LoginPage = ({ setUser }) => {
   const [password, SetPassword] = useState("");
 
   const navigate = useNavigate();
- const handleLogin = (e) => {
-  e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  const user = {
-    name: email.split("@")[0],
-    email,
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const emailNormalized = email.trim().toLowerCase();
+
+    const existingUser = users.find(
+      (u) => u.email === emailNormalized && u.password === password,
+    );
+
+    if (!existingUser) {
+      alert("Invalid email or password");
+      return;
+    }
+
+    const sessionUser = {
+      id: existingUser.id,
+      name: existingUser.name,
+      email: existingUser.email,
+    };
+
+    localStorage.setItem("currentUser", JSON.stringify(sessionUser));
+    setUser(sessionUser);
+
+    window.dispatchEvent(new Event("cartUpdated"));
+    navigate("/");
   };
-
-
-  
- localStorage.setItem("currentUser", JSON.stringify(user));
-setUser(user);       
-   window.dispatchEvent(new Event("cartUpdated"));
-navigate("/");
-
-};
-
 
   return (
     <div className="login-page">

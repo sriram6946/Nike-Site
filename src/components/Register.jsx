@@ -11,38 +11,39 @@ const RegisterPage = () => {
 const handleRegister = (e) => {
   e.preventDefault();
 
-  const newUser = {
-    name,
-    email,
-    password,
-  };
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const carts = JSON.parse(localStorage.getItem("carts")) || [];
 
+  const emailNormalized = email.trim().toLowerCase();
 
-  const existingUsers =
-    JSON.parse(localStorage.getItem("users")) || [];
-
-
-  const userExists = existingUsers.some(
-    (user) => user.email === email
-  );
-
+  const userExists = users.some(u => u.email === emailNormalized);
   if (userExists) {
     alert("User already exists. Please login.");
     return;
   }
 
+  const newUser = {
+    id: crypto.randomUUID(), 
+    name,
+    email: emailNormalized,
+    password
+  };
 
-  existingUsers.push(newUser);
+  users.push(newUser);
 
+  carts.push({
+    userId: newUser.id,
+    items: []
+  });
 
-  localStorage.setItem(
-    "users",
-    JSON.stringify(existingUsers)
-  );
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("carts", JSON.stringify(carts));
 
   alert("Account created successfully!");
   navigate("/login");
 };
+
+
 
 
   return (
